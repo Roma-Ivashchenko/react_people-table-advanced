@@ -1,8 +1,10 @@
 import classNames from 'classnames';
 import { useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useSearchParams } from 'react-router-dom';
 
 export const Navbar = () => {
+  const [searchParams] = useSearchParams();
+
   const getIsActivePage = ({ isActive }: { isActive: boolean }) =>
     classNames('navbar-item', {
       'has-background-grey-lighter': isActive,
@@ -21,7 +23,13 @@ export const Navbar = () => {
     >
       <div className="container">
         <div className="navbar-brand">
-          <NavLink className={getIsActivePage} to="/">
+          <NavLink
+            className={getIsActivePage}
+            to={{
+              pathname: '/people',
+              search: searchParams.toString(),
+            }}
+          >
             Home
           </NavLink>
 
