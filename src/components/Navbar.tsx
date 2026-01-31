@@ -23,17 +23,18 @@ export const Navbar = () => {
     >
       <div className="container">
         <div className="navbar-brand">
+          <NavLink className={getIsActivePage} to="/" end>
+            Home
+          </NavLink>
+
           <NavLink
+            aria-current="page"
             className={getIsActivePage}
             to={{
               pathname: '/people',
               search: searchParams.toString(),
             }}
           >
-            Home
-          </NavLink>
-
-          <NavLink aria-current="page" className={getIsActivePage} to="/people">
             People
           </NavLink>
         </div>

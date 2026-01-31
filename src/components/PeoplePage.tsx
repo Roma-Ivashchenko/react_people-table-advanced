@@ -82,9 +82,6 @@ export const PeoplePage = () => {
     return filtered;
   }, [people, searchParams]);
 
-  const isNotFound =
-    !loading && !error && people.length > 0 && visiblePeople.length === 0;
-
   return (
     <>
       <h1 className="title">People Page</h1>
